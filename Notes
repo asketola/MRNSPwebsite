@@ -1,0 +1,38 @@
+
+General design is to create a web app using .NET MVC with MySQL database hosted on Azure.
+
+Set up MySQL on OSX:
+
+    Get MySQL:
+        On OSX:
+            - https://dev.mysql.com/downloads/mysql/
+            - configure password for root / defaultdefault
+            - NOTE: binary installed in /usr/local/mysql/bin/mysql
+
+    Plumb in packaging for usage in Visual Studio:
+        - cd <your Visual Studio project directory>
+            - default directory: /Users/<name>/Projects/
+        - dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+        - dotnet add package MySql.Data --version 8.0.12
+
+    Start mysql, and create a new database, plus tables:
+
+        Create database:
+            - /usr/local/mysql/bin/mysql -u root -p
+            - CREATE DATABASE <db name>;
+            - SHOW DATABASES;
+
+            Create table inside database:
+                - USE <db name>;
+                - CREATE TABLE <table name>...
+                - reference: https://dev.mysql.com/doc/mysql-getting-started/en/#mysql-getting-started-installing
+
+            Grab database ip:port:
+                - SELECT SUBSTRING_INDEX(USER(), '@', -1) AS ip,  @@hostname as hostname, @@port as port, DATABASE() as current_database;
+
+        Start sql server and test connection:
+            - sudo /usr/local/mysql/support-files/mysql.server start
+            - telnet <ip> <port>
+
+    Now create an SQL file to initialize database with:
+        - mysql -u username -p database_name < file.sql
