@@ -19,12 +19,16 @@ Set up MySQL on OSX:
 
         Create database:
             - /usr/local/mysql/bin/mysql -u root -p
-            - CREATE DATABASE <db name>;
+            - CREATE DATABASE Test; 
             - SHOW DATABASES;
 
             Create table inside database:
-                - USE <db name>;
-                - CREATE TABLE <table name>...
+                - USE Test; 
+                - CREATE TABLE Blog (
+                    BlogId INT unsigned NOT NULL AUTO_INCREMENT,
+                    url VARCHAR(150) NOT NULL,
+                    PRIMARY KEY (BlogId)
+                   );
                 - reference: https://dev.mysql.com/doc/mysql-getting-started/en/#mysql-getting-started-installing
 
             Grab database ip:port:
@@ -34,5 +38,9 @@ Set up MySQL on OSX:
             - sudo /usr/local/mysql/support-files/mysql.server start
             - telnet <ip> <port>
 
-    Now create an SQL file to initialize database with:
-        - mysql -u username -p database_name < file.sql
+        Extra: to create an SQL file to initialize database with:
+            - mysql -u username -p database_name < file.sql
+
+    Template .NET code should work:
+
+        - Look at Controllers/TestController.cs to see SQL Client code example.
