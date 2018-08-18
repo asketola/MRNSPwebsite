@@ -60,5 +60,6 @@ namespace TestApp_2.Controllers
             // View() will render Views/Test/Members.cshtml
             return View(blogs);
 		}
+
     }
 }

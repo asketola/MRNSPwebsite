@@ -58,5 +58,21 @@ namespace TestApp_2
             // View() will render Views/Test/Members.cshtml
             return View(blogs);
         }
+
+        // GET https://localhost:5001/Test/MembersAdd
+        [HttpGet]
+        public IActionResult MembersAdd()
+        {
+            // View() will render Views/Test/MembersAdd.cshtml
+            return View();
+        }
+
+        // POST for data to https://localhost:5001/Test/MembersAdd
+        [HttpPost]
+        public IActionResult MembersAdd(Member model)
+        {
+            // Will return a string for user view
+            return Content($"Hello {model.FirstName}");
+        }
     }
 }

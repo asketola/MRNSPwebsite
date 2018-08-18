@@ -21,4 +21,5 @@ CREATE TABLE Members (
     PRIMARY KEY (firstName, lastName)
 );
 
-INSERT INTO Members ( firstName, lastName, email, password, role ) VALUES ( 'Dorian', 'Issa', 'issadorian@gmail.com', 'defaultdefault', 'grunt');
+INSERT INTO Members ( firstName, lastName, email, password, role )
+    VALUES ( 'Dorian', 'Issa', 'issadorian@gmail.com', 'defaultdefault', 'grunt');

@@ -36,4 +36,9 @@ namespace TestApp_2.Models
         public int BlogId { get; set; }
         public Blog Blog { get; set; }
     }
+
+    public class Member
+    {
+        public string FirstName { get; set; }
+    }
 }
