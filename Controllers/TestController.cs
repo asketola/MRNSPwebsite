@@ -71,8 +71,12 @@ namespace TestApp_2
         [HttpPost]
         public IActionResult MembersAdd(Member model)
         {
+            // string command = "insert values (" + model.FirstName + ") blah...";
+            // Follow above and do this to write to sql database:
+            // cmd.ExecuteNonQuery(); instead of cmd.ExecuteReader()
+
             // Will return a string for user view
-            return Content($"Hello {model.FirstName}");
+            return Content($"Added {model.FirstName} as a new user.");
         }
     }
 }
