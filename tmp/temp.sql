@@ -9,4 +9,4 @@ CREATE TABLE Blog (
     PRIMARY KEY (BlogId)
 );
 
-INSERT INTO Blog ( BlogId, url ) VALUES ( 1, 'test.com' ), ( 2, 'fake.com' );
+INSERT INTO Blog ( BlogId, url ) VALUES ( 1, 'test.com' ), ( 2, 'fake.com' ), ( 3, 'testing.com' );
