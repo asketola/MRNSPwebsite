@@ -1,5 +1,85 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = null;
 }
 
+<!--
+
+
 This is the homepage, add HTML/CSS here
+-->
+
+<!doctype html>
+<html>
+<head>
+    <!--
+        Mt Rainier Nordic Patrol
+        Web App
+
+        Name:         Dorian Issa
+        Date:         16 Aug, 2018
+
+        Filename: home.htm
+    -->
+    <meta charset="utf-8" />
+    <link href="/css/index_layout.css" rel="stylesheet" />
+    <link href="/css/index_styles.css" rel="stylesheet" />
+
+
+    <title>Home</title>
+    <meta name="Description" content="Home Page for Mt. Rainier Nordic Patrol" />
+    <meta name="Keywords" content="nordic, skiing, mt. rainier, winter" />
+</head>
+
+
+<body>
+    <header>
+        <a id="reg_btn" href="#">Register</a>
+        <a id="sign_btn" href="#">Sign In</a>
+    </header>
+
+    <section id="title">
+        <img id="nordic-logo" src="/images/logos/nordic-logo.png" alt="nordic logo" />
+        <h1><span id="bluetext">Mt. Rainier</span><br />Nordic Patrol</h1>
+    </section>
+
+    <nav>
+        <ul>
+            <li><a href="#"><div>About Us</div></a></li>
+            <li><a href="#"><div>Our Mission</div></a></li>
+            <li><a href="#"><div>Meet the Team</div></a></li>
+            <li><a href="#"><div>How to Join</div></a></li>
+        </ul>
+    </nav>
+
+
+    <section id="socialmedia">
+        <ul>
+            <li>
+
+                <a href="#">
+                    <img id="instagram_white" class="white" src="/images/logos/instagram-logo-white.png" alt="instagram logo" />
+                    <img id="instagram_colorful" class="colorful" src="/images/logos/instagram-logo-colorful.png" alt="instagram logo" />
+                </a>
+
+            </li>
+
+            <li>
+                <a href="#">
+                    <img id="facebook_white" class="white" src="/images/logos/facebook-logo-white.png" alt="facebook logo" />
+                    <img id="facebook_colorful" class="colorful" src="/images/logos/facebook-logo-colorful.png" alt="facebook logo" />
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <img id="twitter_white" class="white" src="/images/logos/twitter-logo-white.png" alt="twitter logo" />
+                    <img id="twitter_colorful" class="colorful" src="/images/logos/twitter-logo-colorful.png" alt="twitter logo" />
+                </a>
+            </li>
+
+        </ul>
+    </section>
+
+    <footer></footer>
+</body>
+</html>

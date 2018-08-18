@@ -59,7 +59,7 @@ namespace TestApp_2
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Test}/{action=Index}/{id?}");
+                    template: "{controller=Test}/{action=Index}/{id?}"); // will look for "TestController.cs", and call Index()
             });
         }
     }
