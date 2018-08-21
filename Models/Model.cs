@@ -39,6 +39,7 @@ namespace TestApp_2.Models
 
     public class Member
     {
-        public string FirstName { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
     }
 }

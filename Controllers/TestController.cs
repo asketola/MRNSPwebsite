@@ -76,7 +76,37 @@ namespace TestApp_2
             // cmd.ExecuteNonQuery(); instead of cmd.ExecuteReader()
 
             // Will return a string for user view
-            return Content($"Added {model.FirstName} as a new user.");
+
+            MySql.Data.MySqlClient.MySqlConnection conn;
+            string myConnectionString = "server=127.0.0.1;uid=root;pwd=defaultdefault;database=Test";
+
+            try
+            {
+                conn = new MySql.Data.MySqlClient.MySqlConnection();
+                conn.ConnectionString = myConnectionString;
+                conn.Open();
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                return View(ex.Message);
+            }
+
+
+
+
+
+            string insrt = "INSERT INTO Members ( firstName, lastName ) " +
+                "VALUES ( '" + model.firstName + "', '" + model.lastName+"');";
+            
+            MySqlCommand cmd = new MySqlCommand(insrt, conn);
+
+
+
+
+
+
+            cmd.ExecuteNonQuery();
+            return Content("user was added");
         }
     }
 }

@@ -14,9 +14,9 @@ INSERT INTO Blog ( BlogId, url ) VALUES ( 1, 'test.com' ), ( 2, 'fake.com' ), ( 
 CREATE TABLE Members (
     firstName VARCHAR(20) NOT NULL,
     lastName VARCHAR(20) NOT NULL,
-    email VARCHAR(40) NOT NULL,
-    password VARCHAR(20) NOT NULL,
-    role ENUM('admin','grunt','guest') NOT NULL,
+    email VARCHAR(40) ,
+    password VARCHAR(20) ,
+    role ENUM('admin','grunt','guest') ,
 
     PRIMARY KEY (firstName, lastName)
 );
