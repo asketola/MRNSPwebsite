@@ -8,12 +8,11 @@
     Filename: index.cshtml
 */
 
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300|Ubuntu:300|Alegreya+Sans+SC:100|Londrina+Outline');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300|Ubuntu:300|Alegreya+Sans+SC:100|Londrina+Outline|Montserrat:100,200,300,400');
 
 
 html {
-    background: url(/images/photos/mt-rainier6.jpg) no-repeat fixed center;
-    background-position-x: center;
+    background: url(/images/photos/mt-rainier-background.jpg) no-repeat fixed center;
 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -33,13 +32,19 @@ header a {
     text-decoration: none;
     border: 1px solid transparent;
 
-
+    transition: 0.25s;
 }
 
 header a:hover {
     border-radius: 5px;
     border: 1px solid white;
-    background: hsla(360, 0%, 90%, 0.1);
+    background: white;
+    color: black;
+
+    font-size: large;
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
 }
 
 
@@ -47,11 +52,11 @@ header a:hover {
 
 
 section#title h1 {
-    font-family: 'Londrina Outline', cursive;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 200;
     font-size: 2.5em;
-    font-weight: lighter;
     color: white;
-    text-shadow: 1px 1px black;
 }
 
 section#title h1 #bluetext {
@@ -67,15 +72,18 @@ nav ul {
 nav ul li {
     border: 1px solid white;
     border-radius: 20px;
+
     font-family: 'Source Sans Pro', 'sans-serif';
     font-weight: 300;
     text-align: center;
+
     transition: 0.3s;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
+
     transition: 0.2s;
 }
 
@@ -85,6 +93,7 @@ nav ul li:hover {
 
 nav ul li a:hover {
     color: black;
+    font-size: large;
 }
 
 
@@ -98,14 +107,46 @@ section#socialmedia ul li a {
     text-decoration: none;
 }
 
-section#socialmedia img.colorful {
-    opacity: 0;
-}
+
 
 section#socialmedia img {
+    filter: brightness(10);
     transition: 0.1s;
 }
 
 section#socialmedia img:hover {
-    opacity: 1;
+    filter: brightness(1);
+
+    -webkit-animation: growShrink 0.5s ease;
+    animation: growShrink 0.5s ease;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+
 }
+
+
+
+
+
+
+
+/*________________________________________________________________  ANIMATIONS ____________________________________ */
+
+@keyframes growShrink {
+
+    40% {
+        -webkit-transform: scale(1.2);
+        transform: translateX(1.2);
+    }
+
+    90% {
+        -webkit-transform: scale(0.95);
+        transform: scale(0.95);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+
