@@ -22,86 +22,6 @@ namespace TestApp_2
             return View();
         }
 
-        // https://localhost:5001/Test/Members
-        public IActionResult Members()
-        {
-            MySql.Data.MySqlClient.MySqlConnection conn;
-            string myConnectionString = "server=127.0.0.1;uid=root;pwd=defaultdefault;database=Test";
-
-            try
-            {
-                conn = new MySql.Data.MySqlClient.MySqlConnection();
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                return View(ex.Message);
-            }
-
-            MySqlCommand cmd = new MySqlCommand("select * from Blog", conn);
-
-            List<Blog> blogs = new List<Blog>();
-
-            using (var reader = cmd.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    blogs.Add(new Blog()
-                    {
-                        BlogId = Convert.ToInt32(reader["BlogId"]),
-                        Url = reader["Url"].ToString()
-                    });
-                }
-            }
-
-            // View() will render Views/Test/Members.cshtml
-            return View(blogs);
-        }
-
-        // GET https://localhost:5001/Test/MembersAdd
-        [HttpGet]
-        public IActionResult MembersAdd()
-        {
-            // View() will render Views/Test/MembersAdd.cshtml
-            return View();
-        }
-
-        // POST for data to https://localhost:5001/Test/MembersAdd
-        [HttpPost]
-        public IActionResult MembersAdd(Member model)
-        {
-            // string command = "insert values (" + model.FirstName + ") blah...";
-            // Follow above and do this to write to sql database:
-            // cmd.ExecuteNonQuery(); instead of cmd.ExecuteReader()
-
-            // Will return a string for user view
-
-            MySql.Data.MySqlClient.MySqlConnection conn;
-            string myConnectionString = "server=127.0.0.1;uid=root;pwd=defaultdefault;database=Test";
-
-            try
-            {
-                conn = new MySql.Data.MySqlClient.MySqlConnection();
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                return View(ex.Message);
-            }
-
-            string insrt = "INSERT INTO Members ( firstName, lastName ) " +
-                "VALUES ( '" + model.firstName + "', '" + model.lastName+"');";
-            
-            MySqlCommand cmd = new MySqlCommand(insrt, conn);
-
-            cmd.ExecuteNonQuery();
-            return Content("user was added");
-        }
-
-
-
         [HttpGet]
         public IActionResult LoginPage()
         {
@@ -113,7 +33,6 @@ namespace TestApp_2
         [HttpPost]
         public IActionResult LoginPage(Login model)
         {
-
             //establish/test sql connection
             MySql.Data.MySqlClient.MySqlConnection conn;
             string myConnectionString = "server=127.0.0.1;uid=root;pwd=defaultdefault;database=Test";
@@ -137,6 +56,8 @@ namespace TestApp_2
             string lastName;
 
             //reader to parse sql reply
+            //if correct, show welcome msg
+            //if incorrect show error msg
             using (var reader = query.ExecuteReader())
             {
                 if (reader.Read())
@@ -160,14 +81,7 @@ namespace TestApp_2
 
             }
 
-            //if correct, show welcome msg
-            //if incorrect show error msg
-
             return Content("Welcome " + firstName + " " + lastName + "! You are now logged in.");
-
         }
-
-
-
     }
 }

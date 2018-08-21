@@ -37,9 +37,11 @@
   <ItemGroup>
     <Folder Include="Views\Test\" />
     <Folder Include="wwwroot\images\" />
+    <Folder Include="Views\Members\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Controllers\HomeController.cs" />
+    <Compile Remove="Controllers\TestController %28copy%29.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Views\Home\About.cshtml" />
@@ -90,10 +92,12 @@
     <Content Remove="wwwroot\js\site.js" />
     <Content Remove="wwwroot\js\site.min.js" />
     <Content Remove="wwwroot\css\index_styles.css" />
+    <Content Remove="Views\Members\MembersAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\Test\Index.cshtml" />
     <None Include="wwwroot\css\index_layout.css" />
     <None Include="wwwroot\css\index_styles.css" />
+    <None Include="Views\Members\MembersAdd.cshtml" />
   </ItemGroup>
 </Project>

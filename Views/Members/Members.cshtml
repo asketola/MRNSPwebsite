@@ -1,6 +1,6 @@
-﻿@model IEnumerable<TestApp_2.Models.Blog>
+﻿@model IEnumerable<TestApp_2.Models.Member>
 @{
-    ViewData["Title"] = "Blog - test";
+    ViewData["Title"] = "Members";
     //disable razorpage (default) layouts
     Layout = null;
 }
@@ -24,22 +24,22 @@
     </environment>
 </head>
 <body>
-    <h2>Test</h2>
+    <h2>Members List</h2>
 
     <div class="container body-content">
     <table class="table">
         <tr>
-            <th>ID</th>
-            <th>URL</th>
+            <th>First Name</th>
+            <th>Last Name</th>
         </tr>
         @foreach (var item in Model)
         {
             <tr>
                 <td>
-                    @Html.DisplayTextFor(modelItem => item.BlogId)
+                    @Html.DisplayFor(modelItem => item.firstName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Url)
+                    @Html.DisplayFor(modelItem => item.lastName)
                 </td>
             </tr>
 
