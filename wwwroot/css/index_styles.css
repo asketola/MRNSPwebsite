@@ -8,10 +8,13 @@
     Filename: index.cshtml
 */
 
-@import url('https://fonts.googleapis.com/css?family=Assistant:200|Source+Sans+Pro:200,300|Ubuntu:300');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300|Ubuntu:300|Alegreya+Sans+SC:100|Londrina+Outline');
+
 
 html {
-    background: url(/images/photos/mt-rainier-background.jpg) no-repeat center center fixed;
+    background: url(/images/photos/mt-rainier6.jpg) no-repeat fixed center;
+    background-position-x: center;
+
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -20,78 +23,80 @@ html {
 
 
 
-/*________________________________________________________________  HEADER  structure */
+/*________________________________________________________________  HEADER  styles */
 header a {
-    font-family: 'Assistant', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
     line-height: 30px;
     color: white;
     text-align: center;
     text-decoration: none;
     border: 1px solid transparent;
+
+
 }
 
-    header a:hover {
-        border-radius: 5px;
-        border: 1px solid white;
-        background: hsla(360, 0%, 90%, 0.1);
-    }
+header a:hover {
+    border-radius: 5px;
+    border: 1px solid white;
+    background: hsla(360, 0%, 90%, 0.1);
+}
 
 
-/*________________________________________________________________  TITLE  structure */
+/*________________________________________________________________  TITLE  styles */
 
 
 section#title h1 {
-    font-family: 'Source Sans Pro', 'sans-serif';
-    font-size: 2.3em;
-    font-weight: 300;
+    font-family: 'Londrina Outline', cursive;
+    font-size: 2.5em;
+    font-weight: lighter;
     color: white;
-    text-shadow: 0.5px 0.5px black;
+    text-shadow: 1px 1px black;
 }
 
-    section#title h1 #bluetext {
-        color: hsl(219, 70%, 85%);
-    }
+section#title h1 #bluetext {
+    color: hsl(219, 70%, 90%);
+}
 
 
-/*________________________________________________________________  NAV  structure */
+/*________________________________________________________________  NAV  styles */
 nav ul {
     list-style: none;
 }
 
-    nav ul li {
-        border: 1px solid white;
-        border-radius: 20px;
-        font-family: 'Source Sans Pro', 'sans-serif';
-        font-weight: 300;
-        text-align: center;
-        transition: 0.3s;
-    }
+nav ul li {
+    border: 1px solid white;
+    border-radius: 20px;
+    font-family: 'Source Sans Pro', 'sans-serif';
+    font-weight: 300;
+    text-align: center;
+    transition: 0.3s;
+}
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            transition: 0.2s;
-        }
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.2s;
+}
 
-        nav ul li:hover {
-            background-color: white;
-        }
+nav ul li:hover {
+    background-color: white;
+}
 
-        nav ul li a:hover {
-            color: black;
-        }
+nav ul li a:hover {
+    color: black;
+}
 
 
-/*________________________________________________________________  SOCIAL MEDIA structure */
+/*________________________________________________________________  SOCIAL MEDIA styles */
 
 section#socialmedia ul {
     list-style: none;
 }
 
-    section#socialmedia ul li a {
-        text-decoration: none;
-    }
+section#socialmedia ul li a {
+    text-decoration: none;
+}
 
 section#socialmedia img.colorful {
     opacity: 0;
@@ -101,6 +106,6 @@ section#socialmedia img {
     transition: 0.1s;
 }
 
-    section#socialmedia img:hover {
-        opacity: 1;
-    }
+section#socialmedia img:hover {
+    opacity: 1;
+}
