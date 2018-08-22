@@ -50,7 +50,9 @@ namespace TestApp_2.Controllers
                     members.Add(new Member()
                     {
                         firstName = reader["firstname"].ToString(),
-                        lastName = reader["lastname"].ToString()
+                        lastName = reader["lastname"].ToString(),
+                        emailAddress = reader["emailaddress"].ToString(),
+                        password = reader["password"].ToString()
                     });
                 }
             }
@@ -69,6 +71,12 @@ namespace TestApp_2.Controllers
         [HttpPost]
         public IActionResult Add(Member model)
         {
+            // validate some data..
+            if (model.password == null || model.password == "")
+            {
+                return Content("Error : password can't be empty!");
+            }
+
             MySql.Data.MySqlClient.MySqlConnection conn;
             string myConnectionString = "server=127.0.0.1;uid=root;pwd=defaultdefault;database=Test";
 
@@ -83,8 +91,10 @@ namespace TestApp_2.Controllers
                 return View(ex.Message);
             }
 
-            string insrt = "INSERT INTO Members ( firstName, lastName ) " +
-                "VALUES ( '" + model.firstName + "', '" + model.lastName + "');";
+            string hashedPassword = HashingUtility.GetHashString(model.password);
+
+            string insrt = "INSERT INTO Members ( firstName, lastName, emailAddress, password ) " +
+                "VALUES ( '" + model.firstName + "', '" + model.lastName + "', '" + model.emailAddress + "', '" + hashedPassword + "');";
 
             MySqlCommand cmd = new MySqlCommand(insrt, conn);
 

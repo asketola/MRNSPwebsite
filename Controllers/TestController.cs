@@ -23,15 +23,15 @@ namespace TestApp_2
         }
 
         [HttpGet]
-        public IActionResult LoginPage()
+        public IActionResult SignIn()
         {
-            // View() will render Views/Test/LoginPage.cshtml
+            // View() will render Views/Test/SignIn.cshtml
             return View();
         }
 
-        // POST for data to https://localhost:5001/Test/LoginPage
+        // POST for data to https://localhost:5001/Test/SignIn
         [HttpPost]
-        public IActionResult LoginPage(Login model)
+        public IActionResult SignIn(SignIn model)
         {
             //establish/test sql connection
             MySql.Data.MySqlClient.MySqlConnection conn;
@@ -49,7 +49,7 @@ namespace TestApp_2
             }
 
             //create sql query for password firstname lastname from members where email = input
-            string sqlQuery = "select firstname, lastname, password from Members where email='" + model.email + "';";
+            string sqlQuery = "select firstname, lastname, password from Members where emailAddress='" + model.email + "';";
             MySqlCommand query = new MySqlCommand(sqlQuery, conn);
 
             string firstName;
@@ -66,16 +66,16 @@ namespace TestApp_2
                     lastName = reader["lastname"].ToString();
                     string password = reader["password"].ToString();
 
-                    if (password != model.password)
+                    string hashedPassword = HashingUtility.GetHashString(model.password);
+
+                    if (password != hashedPassword)
                     {
                         return Content("'" + model.password + "'");
-
                     }
 
                 }
                 else
                 {
-                    
                     return Content(model.email);
                 }
 
